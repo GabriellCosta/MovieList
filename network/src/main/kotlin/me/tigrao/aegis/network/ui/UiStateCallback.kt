@@ -9,7 +9,7 @@ import retrofit2.Call
 import retrofit2.Response
 import timber.log.Timber
 
-class UiStateCallback<R>(val mutableLiveData: MutableLiveData<UiState<R>>) : RetryCallback<R>() {
+class UiStateCallback<R>(private val mutableLiveData: MutableLiveData<UiState<R>>) : RetryCallback<R>() {
 
     override fun onRetry() {
         mutableLiveData.postValue(UiLoading)
