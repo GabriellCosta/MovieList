@@ -8,6 +8,10 @@ android {
     defaultConfig {
         buildConfigField "String", "API_URL", "\"\""
     }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
 }
 
 dependencies {
@@ -24,4 +28,7 @@ dependencies {
     implementation Dependencies.lifecycle
 
     testImplementation TestDependencies.jUnit
+    testImplementation TestDependencies.mockitoKotlin
+    testImplementation TestDependencies.androidXArchCoreTest
+    testImplementation TestDependencies.androidXLifecycle
 }
