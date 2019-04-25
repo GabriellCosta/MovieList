@@ -66,6 +66,9 @@ subprojects {
             }
         }
 
-
+        dependencies {
+            implementation dependencies.Dependencies.kodein
+            implementation dependencies.Dependencies.kodeinAndroid
+        }
     }
 }
