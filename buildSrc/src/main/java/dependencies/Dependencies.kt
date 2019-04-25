@@ -56,6 +56,10 @@ object TestDependencies {
 
     val androidXArchCoreTest = "androidx.arch.core:core-testing:2.0.1"
     val androidXLifecycle = "androidx.lifecycle:lifecycle-runtime:2.0.0"
+    val androidx = "androidx.test:core:1.0.0"
+    val runner = "androidx.test:runner:1.1.0"
+    val rules = "androidx.test:rules:1.1.0"
+    val junitX = "androidx.test.ext:junit:1.1.0"
 
     val jUnit = "junit:junit:${Versions.jUnit4}"
     val kotlinReflect = "org.jetbrains.kotlin:kotlin-reflect:${PluginsVersions.kotlin}"
