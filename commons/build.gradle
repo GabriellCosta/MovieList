@@ -1,0 +1,12 @@
+import dependencies.Dependencies
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+dependencies {
+
+    implementation Dependencies.kotlinStdlib
+
+    implementation Dependencies.viewModelExtensions
+
+}
