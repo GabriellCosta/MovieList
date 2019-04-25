@@ -9,4 +9,6 @@ dependencies {
 
     implementation Dependencies.viewModelExtensions
 
+    compileOnly Dependencies.recyclerView
+
 }
