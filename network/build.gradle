@@ -19,6 +19,7 @@ dependencies {
     implementation Dependencies.kotlinStdlib
 
     api Dependencies.retrofit
+    api Dependencies.gson
     implementation Dependencies.retrofitGsonConverter
     implementation Dependencies.okhttp
     implementation Dependencies.okhttpLogger
