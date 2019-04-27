@@ -20,6 +20,8 @@ dependencies {
     implementation Dependencies.constraintLayout
     implementation Dependencies.recyclerView
 
+    implementation Dependencies.paging
+
     implementation Dependencies.imageFetcher
 
     testImplementation TestDependencies.jUnit
