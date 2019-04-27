@@ -7,6 +7,7 @@ import kotlinx.coroutines.launch
 import me.tigrao.aegis.network.ui.UiStateLiveData
 import me.tigrao.aegis.network.ui.uiAwait
 import me.tigrao.movielist.data.MovieItemDTO
+import me.tigrao.movielist.data.MovieItemVO
 
 private const val FIRST_PAGE = 1
 
@@ -14,36 +15,43 @@ internal class MovieListDataSource(
     private val repository: MovieListRepository,
     private val listState: UiStateLiveData<Unit>
 ) :
-    PageKeyedDataSource<Int, MovieItemDTO>() {
+    PageKeyedDataSource<Int, MovieItemVO>() {
 
     private val coroutineScope = CoroutineScope(Dispatchers.IO)
+    private val movieListTransform = MovieListTransform()
 
     override fun loadInitial(
         params: LoadInitialParams<Int>,
-        callback: LoadInitialCallback<Int, MovieItemDTO>
+        callback: LoadInitialCallback<Int, MovieItemVO>
     ) {
 
         coroutineScope.launch {
             repository.fetchMovieList(FIRST_PAGE).uiAwait(listState) {
-                callback.onResult(it.results, 0, nextPageCalculate(FIRST_PAGE))
+
+                val result = it.results.map(movieListTransform::map)
+
+                callback.onResult(result, 0, nextPageCalculate(FIRST_PAGE))
             }
         }
     }
 
     override fun loadAfter(
         params: LoadParams<Int>,
-        callback: LoadCallback<Int, MovieItemDTO>
+        callback: LoadCallback<Int, MovieItemVO>
     ) {
         coroutineScope.launch {
             repository.fetchMovieList(params.key).uiAwait(listState) {
-                callback.onResult(it.results, nextPageCalculate(params.key))
+
+                val result = it.results.map(movieListTransform::map)
+
+                callback.onResult(result, nextPageCalculate(params.key))
             }
         }
     }
 
     override fun loadBefore(
         params: LoadParams<Int>,
-        callback: LoadCallback<Int, MovieItemDTO>
+        callback: LoadCallback<Int, MovieItemVO>
     ) {
         //Not Implementable
     }

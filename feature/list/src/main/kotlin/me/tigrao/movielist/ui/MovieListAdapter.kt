@@ -11,10 +11,11 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import me.tigrao.aegis.commons.ui.bind
 import me.tigrao.movielist.data.MovieItemDTO
+import me.tigrao.movielist.data.MovieItemVO
 import me.tigrao.movielist.list.R
 
 internal class MovieListAdapter  :
-    PagedListAdapter<MovieItemDTO, MovieListAdapter.MovieListViewHolder>(RepoDiffConfig()) {
+    PagedListAdapter<MovieItemVO, MovieListAdapter.MovieListViewHolder>(RepoDiffConfig()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieListViewHolder {
         val layout = LayoutInflater.from(parent.context)
@@ -34,10 +35,10 @@ internal class MovieListAdapter  :
         private val overviewView by bind<TextView>(R.id.txt_list_movie_overview)
         private val releaseDateView by bind<TextView>(R.id.txt_list_movie_release_date)
 
-        fun bind(item: MovieItemDTO) {
+        fun bind(item: MovieItemVO) {
             titleView.text = item.title
             overviewView.text = item.overview
-            releaseDateView.text = item.releaseDate.toString()
+            releaseDateView.text = item.releaseDate
 
             Glide.with(posterView)
                 .load("https://image.tmdb.org/t/p/w185/${item.posterPath}")
