@@ -39,7 +39,7 @@ internal class MovieListAdapter  :
         fun bind(item: MovieItemVO) {
             titleView.text = item.title
             overviewView.text = item.overview
-            genresView.text = item.genre.toString()
+            genresView.text = item.genre
             releaseDateView.text = item.releaseDate
 
             Glide.with(posterView)

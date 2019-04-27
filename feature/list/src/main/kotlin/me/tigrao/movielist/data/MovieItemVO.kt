@@ -5,5 +5,5 @@ internal data class MovieItemVO(
     val overview: String,
     val releaseDate: String,
     val posterPath: String,
-    val genre: List<String>
+    val genre: String
 )

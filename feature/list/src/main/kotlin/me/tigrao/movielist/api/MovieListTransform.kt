@@ -18,7 +18,7 @@ internal class MovieListTransform(genreList: GenreResponseDTO) {
             overview = movieItemDTO.overview,
             posterPath =  movieItemDTO.posterPath,
             releaseDate = movieItemDTO.releaseDate,
-            genre = createGenreList(movieItemDTO.genre)
+            genre = createGenreList(movieItemDTO.genre).toString()
         )
     }
 
