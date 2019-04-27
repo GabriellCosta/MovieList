@@ -6,7 +6,7 @@ apply plugin: 'kotlin-android'
 
 android {
     defaultConfig {
-        buildConfigField "String", "API_URL", "\"\""
+        buildConfigField "String", "API_URL", "\"https://api.themoviedb.org/\""
     }
 
     testOptions {
@@ -27,6 +27,10 @@ dependencies {
     implementation Dependencies.timber
 
     implementation Dependencies.lifecycle
+
+    api Dependencies.coroutinesCore
+    api Dependencies.coroutinesAndroid
+    implementation Dependencies.coroutinesAdapter
 
     testImplementation TestDependencies.jUnit
     testImplementation TestDependencies.mockitoKotlin
