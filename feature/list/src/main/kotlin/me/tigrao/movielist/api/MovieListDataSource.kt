@@ -6,7 +6,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import me.tigrao.aegis.network.ui.UiStateLiveData
 import me.tigrao.aegis.network.ui.uiAwait
-import me.tigrao.movielist.data.MovieItemDTO
 import me.tigrao.movielist.data.MovieItemVO
 
 private const val FIRST_PAGE = 1
@@ -18,7 +17,15 @@ internal class MovieListDataSource(
     PageKeyedDataSource<Int, MovieItemVO>() {
 
     private val coroutineScope = CoroutineScope(Dispatchers.IO)
-    private val movieListTransform = MovieListTransform()
+    private lateinit var movieListTransform: MovieListTransform
+
+    init {
+        coroutineScope.launch {
+            val genreList = repository.fetchGenres().await()
+
+            movieListTransform = MovieListTransform(genreList)
+        }
+    }
 
     override fun loadInitial(
         params: LoadInitialParams<Int>,

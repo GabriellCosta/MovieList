@@ -34,10 +34,12 @@ internal class MovieListAdapter  :
         private val titleView by bind<TextView>(R.id.txt_list_movie_title)
         private val overviewView by bind<TextView>(R.id.txt_list_movie_overview)
         private val releaseDateView by bind<TextView>(R.id.txt_list_movie_release_date)
+        private val genresView by bind<TextView>(R.id.txt_list_moive_genre)
 
         fun bind(item: MovieItemVO) {
             titleView.text = item.title
             overviewView.text = item.overview
+            genresView.text = item.genre.toString()
             releaseDateView.text = item.releaseDate
 
             Glide.with(posterView)
