@@ -3,7 +3,7 @@ package me.tigrao.movielist.data
 import com.google.gson.annotations.SerializedName
 import java.util.Date
 
-internal class MovieItemDTO(
+internal data class MovieItemDTO(
     @SerializedName("title")
     val title: String,
     @SerializedName("overview")
