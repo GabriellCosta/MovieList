@@ -29,18 +29,13 @@ internal class MovieListAdapter :
         holder.bind(item)
     }
 
-    internal class MovieListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
-        View.OnClickListener {
+    internal class MovieListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         private val posterView by bind<ImageView>(R.id.image_list_movie)
         private val titleView by bind<TextView>(R.id.txt_list_movie_title)
         private val overviewView by bind<TextView>(R.id.txt_list_movie_overview)
         private val releaseDateView by bind<TextView>(R.id.txt_list_movie_release_date)
         private val genresView by bind<TextView>(R.id.txt_list_moive_genre)
-
-        init {
-            itemView.setOnClickListener(this)
-        }
 
         fun bind(item: MovieItemVO) {
             titleView.text = item.title
@@ -52,10 +47,10 @@ internal class MovieListAdapter :
                 .load("https://image.tmdb.org/t/p/w185/${item.posterPath}")
                 .apply(RequestOptions.circleCropTransform())
                 .into(posterView)
-        }
 
-        override fun onClick(v: View) {
-            v.context.startActivity(DetailActivity(v.context))
+            itemView.setOnClickListener {
+                it.context.startActivity(DetailActivity(it.context, item))
+            }
         }
     }
 }
