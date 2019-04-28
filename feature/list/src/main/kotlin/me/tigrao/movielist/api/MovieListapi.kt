@@ -8,9 +8,9 @@ import retrofit2.http.Query
 
 internal interface MovieListapi {
 
-    @GET("3/movie/upcoming?api_key=1f54bd990f1cdfb230adb312546d765d&language=pt-BR&page=1")
+    @GET("3/movie/upcoming?language=pt-BR&page=1")
     fun fetchRepositoriesAsync(@Query("page") page: Int): Deferred<MovieListResponseDTO>
 
-    @GET("3/genre/movie/list?api_key=1f54bd990f1cdfb230adb312546d765d&language=pt-BR")
+    @GET("3/genre/movie/list?language=pt-BR")
     fun fetchGenres() : Deferred<GenreResponseDTO>
 }
