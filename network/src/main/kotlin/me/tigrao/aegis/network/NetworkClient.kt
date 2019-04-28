@@ -26,7 +26,8 @@ object NetworkClient {
     private fun buildOkhttpClient() =
         OkHttpClient.Builder()
             .addInterceptor(getHttpLoggingInterceptor())
-            .addInterceptor(ApiKeyInterceptor())
+            .addInterceptor(apiKeyInterceptor())
+            .addInterceptor(languageInterceptor())
             .build()
 
     private fun getHttpLoggingInterceptor(): HttpLoggingInterceptor =
