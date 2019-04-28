@@ -1,0 +1,32 @@
+import dependencies.Dependencies
+import dependencies.TestDependencies
+
+apply plugin: 'com.android.feature'
+apply plugin: 'kotlin-android'
+
+dependencies {
+
+    implementation project(':network')
+    implementation project(':commons')
+    implementation project(':styleguide')
+
+    implementation Dependencies.kotlinStdlib
+
+    implementation Dependencies.lifecycle
+    implementation Dependencies.viewModel
+    implementation Dependencies.viewModelExtensions
+
+    implementation Dependencies.appCompat
+    implementation Dependencies.constraintLayout
+
+    implementation Dependencies.imageFetcher
+
+    testImplementation TestDependencies.jUnit
+    testImplementation TestDependencies.mockitoKotlin
+
+    testImplementation TestDependencies.roboletric
+    testImplementation TestDependencies.androidx
+    testImplementation TestDependencies.runner
+    testImplementation TestDependencies.junitX
+
+}
