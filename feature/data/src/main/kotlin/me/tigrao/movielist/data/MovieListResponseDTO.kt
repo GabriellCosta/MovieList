@@ -2,7 +2,7 @@ package me.tigrao.movielist.data
 
 import com.google.gson.annotations.SerializedName
 
-internal class MovieListResponseDTO(
+class MovieListResponseDTO(
     @SerializedName("results")
     val results: List<MovieItemDTO>,
     @SerializedName("page")

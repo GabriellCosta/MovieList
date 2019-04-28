@@ -3,4 +3,5 @@ include ':app',
         ':commons',
         ':styleguide',
         ':feature:list',
-        ':feature:detail'
+        ':feature:detail',
+        ':feature:data'

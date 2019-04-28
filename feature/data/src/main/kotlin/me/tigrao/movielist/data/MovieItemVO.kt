@@ -1,6 +1,6 @@
 package me.tigrao.movielist.data
 
-internal data class MovieItemVO(
+data class MovieItemVO(
     val title: String,
     val overview: String,
     val releaseDate: String,
