@@ -53,6 +53,7 @@ internal class MovieListActivity : AppCompatActivity(), KodeinAware {
 
         }
             .observeOnLoading(this) {
+                loadingView.visibility = View.VISIBLE
             }
             .observeOnError(this) {
                 Toast.makeText(this, "Deu Ruim", Toast.LENGTH_LONG).show()
