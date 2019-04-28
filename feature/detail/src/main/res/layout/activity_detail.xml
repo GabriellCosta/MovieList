@@ -1,7 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
-  android:layout_height="match_parent">
+  android:layout_height="match_parent"
+  android:paddingBottom="16dp"
+  android:paddingStart="16dp"
+  android:paddingEnd="16dp">
+
+  <ImageView
+    android:id="@+id/image_list_movie"
+    android:layout_width="48dp"
+    android:layout_height="48dp"
+    android:layout_marginTop="24dp"
+    android:importantForAccessibility="no"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    tools:src="@tools:sample/avatars"/>
+
+  <TextView
+    android:id="@+id/txt_list_movie_title"
+    style="@style/Text.Title"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginEnd="32dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toEndOf="@+id/image_list_movie"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_chainStyle="packed"
+    tools:text="Vingadores: Ultimato"/>
+
+  <TextView
+    android:id="@+id/txt_list_movie_overview"
+    style="@style/Text.Subtitle"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginTop="16dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toEndOf="@+id/image_list_movie"
+    app:layout_constraintTop_toBottomOf="@+id/txt_list_movie_title"
+    app:layout_constraintVertical_chainStyle="packed"
+    tools:text="As coisas na Terra estão caóticas. Depois do poder das Joias do Infinito dizimar metade da população, Thanos vestiu a manta de comandante do universo, deixando os Vingadores em sua completa ruína.  O semideus irá expandir seu reino tirânico, a não ser que alguém consiga impedi-lo. Então, sem tempo para sofrer pela perda de seus amigos, Viúva Negra (Scarlett Johansson), Thor (Chris Hemsworth), Capitão América (Chris Evans) e Bruce Banner (Mark Ruffalo) devem permanecer resilientes e encontrar os últimos membros de sua força-tarefa - e chamar os serviços da Capitã Marvel.  Juntos, eles devem descobrir um jeito de reaver seus aliados dizimados e derrotar Thanos, ou sofrer com uma existência sem esperança."/>
+
+  <View
+    android:id="@+id/view_list_item_separator"
+    android:layout_width="match_parent"
+    android:layout_height="0.5dp"
+    app:layout_constraintTop_toBottomOf="@+id/txt_list_movie_overview"
+    android:layout_marginTop="16dp"
+    android:layout_marginBottom="14dp"
+    android:background="@color/list_item_separator"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"/>
+
+  <TextView
+    android:layout_marginTop="16dp"
+    android:id="@+id/txt_list_moive_genre"
+    style="@style/DrawableText"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="12dp"
+    app:layout_constraintTop_toBottomOf="@+id/view_list_item_separator"
+    app:layout_constraintEnd_toStartOf="@+id/txt_list_movie_release_date"
+    app:layout_constraintStart_toStartOf="parent"
+    tools:text="Ação, Drama, Catasrofe, Adulto, Anime, Pagamento"/>
+
+  <TextView
+    android:layout_marginTop="16dp"
+    app:layout_constraintTop_toBottomOf="@+id/view_list_item_separator"
+    android:id="@+id/txt_list_movie_release_date"
+    style="@style/DrawableText"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="16dp"
+    android:drawableStart="@drawable/ic_date_range"
+    app:layout_constraintEnd_toEndOf="parent"
+    tools:text="24/04/2019"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
