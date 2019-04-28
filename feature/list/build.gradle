@@ -9,6 +9,7 @@ dependencies {
     implementation project(':network')
     implementation project(':commons')
     implementation project(':styleguide')
+    implementation project(':feature:detail')
 
     implementation Dependencies.kotlinStdlib
 

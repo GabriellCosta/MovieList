@@ -3,5 +3,8 @@
 
   <application>
 
+    <activity android:name=".ui.DetailActivity"/>
+
   </application>
+
 </manifest>
