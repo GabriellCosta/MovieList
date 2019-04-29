@@ -3,6 +3,7 @@ package me.tigrao.movielist.detail.ui
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -28,6 +29,7 @@ class DetailActivity : AppCompatActivity(), KodeinAware {
     private val overviewView by bind<TextView>(R.id.txt_list_movie_overview)
     private val releaseDateView by bind<TextView>(R.id.txt_list_movie_release_date)
     private val genresView by bind<TextView>(R.id.txt_list_moive_genre)
+    private val saveButton by bind<Button>(R.id.btn_detail_save)
 
     companion object {
 
@@ -64,5 +66,9 @@ class DetailActivity : AppCompatActivity(), KodeinAware {
             .load("https://image.tmdb.org/t/p/w185/${item.posterPath}")
             .apply(RequestOptions.circleCropTransform())
             .into(posterView)
+
+        saveButton.setOnClickListener {
+            detailViewModel.saveMovie(item)
+        }
     }
 }

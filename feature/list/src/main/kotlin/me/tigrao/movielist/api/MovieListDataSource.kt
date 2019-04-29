@@ -19,20 +19,16 @@ internal class MovieListDataSource(
     private val coroutineScope = CoroutineScope(Dispatchers.IO)
     private lateinit var movieListTransform: MovieListTransform
 
-    init {
-        coroutineScope.launch {
-            val genreList = repository.fetchGenres().await()
-
-            movieListTransform = MovieListTransform(genreList)
-        }
-    }
-
     override fun loadInitial(
         params: LoadInitialParams<Int>,
         callback: LoadInitialCallback<Int, MovieItemVO>
     ) {
 
         coroutineScope.launch {
+            val genreList = repository.fetchGenres().await()
+
+            movieListTransform = MovieListTransform(genreList)
+
             repository.fetchMovieList(FIRST_PAGE).uiAwait(listState) {
 
                 val result = it.results.map(movieListTransform::map)

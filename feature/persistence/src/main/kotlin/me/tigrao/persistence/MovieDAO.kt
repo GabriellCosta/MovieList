@@ -1,5 +1,6 @@
 package me.tigrao.persistence
 
+import androidx.paging.DataSource
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
@@ -12,6 +13,6 @@ interface MovieDAO {
     fun insertMovie(movieItemVO: MovieItemVO)
 
     @Query("SELECT * FROM MovieItemVO")
-    fun fetchMovies() : List<MovieItemVO>
+    fun fetchMovies() : DataSource.Factory<Int, MovieItemVO>
 
 }

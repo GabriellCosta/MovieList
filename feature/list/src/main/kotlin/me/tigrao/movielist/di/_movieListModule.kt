@@ -2,9 +2,11 @@ package me.tigrao.movielist.di
 
 import me.tigrao.aegis.network.NetworkClient
 import me.tigrao.movielist.api.DataSourceFactory
+import me.tigrao.movielist.api.DataSourceFactoryGetter
 import me.tigrao.movielist.api.MovieListapi
 import me.tigrao.movielist.api.MovieListRepository
 import me.tigrao.movielist.api.MovieListRepositoryImpl
+import me.tigrao.movielist.util.NetworkAvailable
 import me.tigrao.movielist.viewmodel.MovieListViewModel
 import org.kodein.di.Kodein
 import org.kodein.di.generic.bind
@@ -28,5 +30,13 @@ val movieListModule = Kodein.Module("movieListModule") {
 
     bind<MovieListViewModel>() with provider {
         MovieListViewModel(instance())
+    }
+
+    bind() from provider {
+        DataSourceFactoryGetter(instance(), instance(), instance())
+    }
+
+    bind() from provider {
+        NetworkAvailable(instance())
     }
 }

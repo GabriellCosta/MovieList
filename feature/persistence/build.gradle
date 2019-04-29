@@ -16,6 +16,8 @@ dependencies {
     implementation Dependencies.room
     kapt Dependencies.roomKapt
 
+    implementation Dependencies.paging
+
     testImplementation TestDependencies.jUnit
     testImplementation TestDependencies.mockitoKotlin
 

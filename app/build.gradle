@@ -25,5 +25,6 @@ android {
 dependencies {
     implementation project(":commons")
     implementation project(":feature:list")
+    implementation project(":feature:detail")
     implementation project(':feature:persistence')
 }
