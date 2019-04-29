@@ -4,5 +4,5 @@ import com.google.gson.annotations.SerializedName
 
 class GenreResponseDTO(
     @SerializedName("genres")
-    val genres : List<GenreItemDTO>
+    val genres: List<GenreItemDTO>
 )

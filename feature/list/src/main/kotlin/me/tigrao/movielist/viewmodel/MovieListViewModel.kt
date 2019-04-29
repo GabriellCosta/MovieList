@@ -4,9 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
-import me.tigrao.movielist.api.DataSourceFactory
 import me.tigrao.movielist.api.DataSourceFactoryGetter
-import me.tigrao.movielist.data.MovieItemDTO
 import me.tigrao.movielist.data.MovieItemVO
 
 private const val PAGE_SIZE = 3

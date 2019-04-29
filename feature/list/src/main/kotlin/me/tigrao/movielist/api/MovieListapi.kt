@@ -12,5 +12,5 @@ internal interface MovieListapi {
     fun fetchRepositoriesAsync(@Query("page") page: Int): Deferred<MovieListResponseDTO>
 
     @GET("3/genre/movie/list?language=pt-BR")
-    fun fetchGenres() : Deferred<GenreResponseDTO>
+    fun fetchGenres(): Deferred<GenreResponseDTO>
 }

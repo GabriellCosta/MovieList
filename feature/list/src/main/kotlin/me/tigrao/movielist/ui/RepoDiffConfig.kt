@@ -1,7 +1,6 @@
 package me.tigrao.movielist.ui
 
 import androidx.recyclerview.widget.DiffUtil
-import me.tigrao.movielist.data.MovieItemDTO
 import me.tigrao.movielist.data.MovieItemVO
 
 internal class RepoDiffConfig : DiffUtil.ItemCallback<MovieItemVO>() {

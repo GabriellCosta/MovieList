@@ -22,7 +22,7 @@ class DetailActivity : AppCompatActivity(), KodeinAware {
 
     override val kodein: Kodein by closestKodein()
 
-    private val detailViewModel : DetailViewModel by viewModel()
+    private val detailViewModel: DetailViewModel by viewModel()
 
     private val posterView by bind<ImageView>(R.id.image_list_movie)
     private val titleView by bind<TextView>(R.id.txt_list_movie_title)
@@ -35,11 +35,10 @@ class DetailActivity : AppCompatActivity(), KodeinAware {
 
         private const val EXTRA_DETAIL_ITEM = "EXTRA_DETAIL_ITEM"
 
-        operator fun invoke(context: Context, item: MovieItemVO) : Intent {
+        operator fun invoke(context: Context, item: MovieItemVO): Intent {
             return Intent(context, DetailActivity::class.java)
                 .putExtra(EXTRA_DETAIL_ITEM, item)
         }
-
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

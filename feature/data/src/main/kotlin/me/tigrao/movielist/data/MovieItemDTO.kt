@@ -1,7 +1,6 @@
 package me.tigrao.movielist.data
 
 import com.google.gson.annotations.SerializedName
-import java.util.Date
 
 data class MovieItemDTO(
     @SerializedName("title")

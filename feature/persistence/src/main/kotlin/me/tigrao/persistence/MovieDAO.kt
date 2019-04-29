@@ -13,6 +13,5 @@ interface MovieDAO {
     fun insertMovie(movieItemVO: MovieItemVO)
 
     @Query("SELECT * FROM MovieItemVO")
-    fun fetchMovies() : DataSource.Factory<Int, MovieItemVO>
-
+    fun fetchMovies(): DataSource.Factory<Int, MovieItemVO>
 }

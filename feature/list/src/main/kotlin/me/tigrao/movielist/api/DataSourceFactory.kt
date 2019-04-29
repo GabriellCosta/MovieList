@@ -2,7 +2,6 @@ package me.tigrao.movielist.api
 
 import androidx.paging.DataSource
 import me.tigrao.aegis.network.ui.UiStateLiveData
-import me.tigrao.movielist.data.MovieItemDTO
 import me.tigrao.movielist.data.MovieItemVO
 
 internal class DataSourceFactory(private val repository: MovieListRepository) :
