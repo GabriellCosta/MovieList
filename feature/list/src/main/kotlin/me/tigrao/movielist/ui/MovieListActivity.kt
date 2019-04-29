@@ -2,9 +2,12 @@ package me.tigrao.movielist.ui
 
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -26,7 +29,7 @@ internal class MovieListActivity : AppCompatActivity(), KodeinAware {
 
     private val recyclerView by bind<RecyclerView>(R.id.rv_movie_list)
     private val loadingView by bind<View>(R.id.loading_movie_list)
-
+    private val toolbar by bind<Toolbar>(R.id.toolbar_movie_list)
     private val movieListAdapter = MovieListAdapter()
 
     private val viewModel: MovieListViewModel by viewModel()
@@ -36,11 +39,20 @@ internal class MovieListActivity : AppCompatActivity(), KodeinAware {
 
         setContentView(R.layout.fragment_movie_list)
 
+        prepareUi()
+    }
+
+    private fun prepareUi() {
         prepareState()
         prepareList()
+        prepareToolbar()
 
         viewModel.fetchRepositories()
             .observe(this, Observer(movieListAdapter::submitList))
+    }
+
+    private fun prepareToolbar() {
+        setSupportActionBar(toolbar)
     }
 
     private fun prepareState() {
@@ -69,5 +81,19 @@ internal class MovieListActivity : AppCompatActivity(), KodeinAware {
         recyclerView.addItemDecoration(dividerItemDecoration)
         recyclerView.adapter = movieListAdapter
         recyclerView.layoutManager = createLayoutManager
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        if (item.itemId == R.id.menu_sort)
+            Toast.makeText(this, "sort", Toast.LENGTH_LONG).show()
+
+        return super.onOptionsItemSelected(item)
     }
 }
