@@ -9,4 +9,7 @@ dependencies {
 
     implementation Dependencies.gson
 
+    implementation Dependencies.room
+    implementation Dependencies.roomKapt
+
 }

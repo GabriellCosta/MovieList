@@ -4,4 +4,5 @@ include ':app',
         ':styleguide',
         ':feature:list',
         ':feature:detail',
-        ':feature:data'
+        ':feature:data',
+        ':feature:persistence'

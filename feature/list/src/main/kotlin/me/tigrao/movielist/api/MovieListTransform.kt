@@ -3,6 +3,7 @@ package me.tigrao.movielist.api
 import me.tigrao.movielist.data.GenreResponseDTO
 import me.tigrao.movielist.data.MovieItemDTO
 import me.tigrao.movielist.data.MovieItemVO
+import java.util.UUID
 
 internal class MovieListTransform(genreList: GenreResponseDTO) {
 
@@ -14,6 +15,7 @@ internal class MovieListTransform(genreList: GenreResponseDTO) {
     fun map(movieItemDTO: MovieItemDTO) : MovieItemVO {
 
         return MovieItemVO(
+            UUID.randomUUID().node(),
             title = movieItemDTO.title,
             overview = movieItemDTO.overview,
             posterPath =  movieItemDTO.posterPath,

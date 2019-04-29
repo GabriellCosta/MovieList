@@ -2,9 +2,16 @@ package me.tigrao.movielist.data
 
 import android.os.Parcel
 import android.os.Parcelable
+import androidx.annotation.NonNull
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
 @Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
+@Entity
 data class MovieItemVO(
+    @NonNull
+    @PrimaryKey
+    val movieId: Long,
     val title: String,
     val overview: String,
     val releaseDate: String,
@@ -12,6 +19,7 @@ data class MovieItemVO(
     val genre: String
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
+        parcel.readLong(),
         parcel.readString(),
         parcel.readString(),
         parcel.readString(),

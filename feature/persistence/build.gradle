@@ -1,0 +1,27 @@
+import dependencies.Dependencies
+import dependencies.TestDependencies
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin : 'kotlin-kapt'
+
+dependencies {
+
+    implementation project(':network')
+    implementation project(':commons')
+    implementation project(':feature:data')
+
+    implementation Dependencies.kotlinStdlib
+
+    implementation Dependencies.room
+    kapt Dependencies.roomKapt
+
+    testImplementation TestDependencies.jUnit
+    testImplementation TestDependencies.mockitoKotlin
+
+    testImplementation TestDependencies.roboletric
+    testImplementation TestDependencies.androidx
+    testImplementation TestDependencies.runner
+    testImplementation TestDependencies.junitX
+
+}
