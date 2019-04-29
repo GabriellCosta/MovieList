@@ -1,6 +1,7 @@
 package me.tigrao.movielist.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -56,6 +57,7 @@ internal class MovieListActivity : AppCompatActivity(), KodeinAware {
                 loadingView.visibility = View.VISIBLE
             }
             .observeOnError(this) {
+                Log.d("MovieListActivity", it.throwable.localizedMessage)
                 Toast.makeText(this, "Deu Ruim", Toast.LENGTH_LONG).show()
             }
     }

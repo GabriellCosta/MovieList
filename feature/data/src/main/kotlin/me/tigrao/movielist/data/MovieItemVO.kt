@@ -11,7 +11,7 @@ import androidx.room.PrimaryKey
 data class MovieItemVO(
     @NonNull
     @PrimaryKey
-    val movieId: Long,
+    val movieId: String,
     val title: String,
     val overview: String,
     val releaseDate: String,
@@ -19,7 +19,7 @@ data class MovieItemVO(
     val genre: String
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
-        parcel.readLong(),
+        parcel.readString(),
         parcel.readString(),
         parcel.readString(),
         parcel.readString(),
@@ -28,6 +28,7 @@ data class MovieItemVO(
     )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeString(movieId)
         parcel.writeString(title)
         parcel.writeString(overview)
         parcel.writeString(releaseDate)

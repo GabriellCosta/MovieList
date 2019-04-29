@@ -8,9 +8,11 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import me.tigrao.aegis.commons.di.viewModel
 import me.tigrao.aegis.commons.ui.bind
 import me.tigrao.movielist.data.MovieItemVO
 import me.tigrao.movielist.detail.R
+import me.tigrao.movielist.detail.viewmodel.DetailViewModel
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.closestKodein
@@ -18,6 +20,8 @@ import org.kodein.di.android.closestKodein
 class DetailActivity : AppCompatActivity(), KodeinAware {
 
     override val kodein: Kodein by closestKodein()
+
+    private val detailViewModel : DetailViewModel by viewModel()
 
     private val posterView by bind<ImageView>(R.id.image_list_movie)
     private val titleView by bind<TextView>(R.id.txt_list_movie_title)

@@ -10,6 +10,7 @@ dependencies {
     implementation project(':commons')
     implementation project(':styleguide')
     implementation project(':feature:data')
+    implementation project(':feature:persistence')
 
     implementation Dependencies.kotlinStdlib
 
@@ -21,9 +22,6 @@ dependencies {
     implementation Dependencies.constraintLayout
 
     implementation Dependencies.imageFetcher
-
-    implementation Dependencies.room
-    implementation Dependencies.roomKapt
 
     testImplementation TestDependencies.jUnit
     testImplementation TestDependencies.mockitoKotlin

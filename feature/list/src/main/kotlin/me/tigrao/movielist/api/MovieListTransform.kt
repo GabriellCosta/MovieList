@@ -15,7 +15,7 @@ internal class MovieListTransform(genreList: GenreResponseDTO) {
     fun map(movieItemDTO: MovieItemDTO) : MovieItemVO {
 
         return MovieItemVO(
-            UUID.randomUUID().node(),
+            UUID.randomUUID().toString(),
             title = movieItemDTO.title,
             overview = movieItemDTO.overview,
             posterPath =  movieItemDTO.posterPath,
