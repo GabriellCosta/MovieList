@@ -22,6 +22,9 @@ dependencies {
 
     implementation Dependencies.imageFetcher
 
+    implementation Dependencies.room
+    implementation Dependencies.roomKapt
+
     testImplementation TestDependencies.jUnit
     testImplementation TestDependencies.mockitoKotlin
 

@@ -20,6 +20,7 @@ internal object Versions {
     const val imageFetcher = "4.9.0"
     const val courotines = "1.1.1"
     const val paging = "2.1.0"
+    const val room = "2.0.0"
 
 }
 
@@ -57,6 +58,9 @@ object Dependencies {
     val coroutinesAdapter = "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2"
 
     val paging = "androidx.paging:paging-runtime:${Versions.paging}"
+
+    val room = "androidx.room:room-runtime:${Versions.room}"
+    val roomKapt = "androidx.room:room-compiler:${Versions.room}"
 
 }
 
