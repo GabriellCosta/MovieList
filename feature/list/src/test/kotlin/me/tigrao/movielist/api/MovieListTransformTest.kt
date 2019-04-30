@@ -58,6 +58,21 @@ class MovieListTransformTest {
     }
 
     @Test
+    fun givenMovieItem_withNullPosterPath_MovieVOPosterPathShouldBeEmptyString() {
+        val movieDTO = MovieItemDTO(
+            title = "Movie",
+            overview = "Overview",
+            releaseDate = "2019-04-04",
+            posterPath = null,
+            genre = listOf(1)
+        )
+
+        val result = movieListTransform.map(movieDTO)
+
+        assertEquals("", result.posterPath)
+    }
+
+    @Test
     fun givenMovieItem_withReleaseDate_MovieVOShouldBetheSame() {
         val movieDTO = createMovieResponseMock()
 
