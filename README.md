@@ -24,4 +24,4 @@
 # Melhorias
 
 Hoje é salvo somente itens favoritos, no entanto deveria ser salvo todos os valores da api de filmes e assim adicionar um indicativo de que ele é favorito
-assim a implementação iria melhorar pois teriamos um single source of thrust, e uma ordenação mais simples de ser elabora
+assim a implementação iria melhorar pois teriamos um single source of truth, e uma ordenação mais simples de ser elabora
