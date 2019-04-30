@@ -1,8 +1,8 @@
 package me.tigrao.movielist.api
 
-import junit.framework.Assert.*
 import me.tigrao.movielist.data.GenreItemDTO
 import me.tigrao.movielist.data.GenreResponseDTO
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 

@@ -1,7 +1,6 @@
 package me.tigrao.movielist.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -77,7 +76,7 @@ internal class MovieListActivity : AppCompatActivity(), KodeinAware {
     private fun onError(errorData: ErrorData) {
         errorData.throwable.printStackTrace()
 
-       val rootView =  window.decorView.rootView
+        val rootView = window.decorView.rootView
         Snackbar.make(rootView, "Um erro ocorreu", Snackbar.LENGTH_INDEFINITE)
             .show()
     }
