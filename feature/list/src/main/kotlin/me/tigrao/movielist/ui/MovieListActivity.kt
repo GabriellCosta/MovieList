@@ -12,6 +12,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import me.tigrao.aegis.commons.di.viewModel
 import me.tigrao.aegis.commons.ui.bind
 import me.tigrao.aegis.network.ui.ErrorData
@@ -74,8 +75,11 @@ internal class MovieListActivity : AppCompatActivity(), KodeinAware {
     }
 
     private fun onError(errorData: ErrorData) {
-        Log.d("MovieListActivity", errorData.throwable.localizedMessage)
-        Toast.makeText(this, "Deu Ruim", Toast.LENGTH_LONG).show()
+        errorData.throwable.printStackTrace()
+
+       val rootView =  window.decorView.rootView
+        Snackbar.make(rootView, "Um erro ocorreu", Snackbar.LENGTH_INDEFINITE)
+            .show()
     }
 
     private fun prepareList() {
