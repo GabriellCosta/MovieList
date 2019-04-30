@@ -9,16 +9,15 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.Observer
-import androidx.paging.PagedList
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import me.tigrao.aegis.commons.di.viewModel
 import me.tigrao.aegis.commons.ui.bind
+import me.tigrao.aegis.network.ui.ErrorData
 import me.tigrao.aegis.network.ui.observeOnError
 import me.tigrao.aegis.network.ui.observeOnLoading
 import me.tigrao.aegis.network.ui.observeOnSuccess
-import me.tigrao.movielist.data.MovieItemVO
 import me.tigrao.movielist.list.R
 import me.tigrao.movielist.viewmodel.MovieListViewModel
 import org.kodein.di.Kodein
@@ -58,19 +57,25 @@ internal class MovieListActivity : AppCompatActivity(), KodeinAware {
     }
 
     private fun prepareState() {
-        viewModel.uiState.observeOnSuccess(this) { Unit ->
-            loadingView.visibility = View.GONE
-            recyclerView.visibility = View.VISIBLE
+        viewModel.uiState.observeOnSuccess(this, ::onSuccess)
+            .observeOnLoading(this, ::onLoading)
+            .observeOnError(this, ::onError)
+    }
 
-            Toast.makeText(this, "Deu Bom Mlk : )", Toast.LENGTH_LONG).show()
-        }
-            .observeOnLoading(this) {
-                loadingView.visibility = View.VISIBLE
-            }
-            .observeOnError(this) {
-                Log.d("MovieListActivity", it.throwable.localizedMessage)
-                Toast.makeText(this, "Deu Ruim", Toast.LENGTH_LONG).show()
-            }
+    private fun onSuccess() {
+        loadingView.visibility = View.GONE
+        recyclerView.visibility = View.VISIBLE
+
+        Toast.makeText(this, "Deu Bom Mlk : )", Toast.LENGTH_LONG).show()
+    }
+
+    private fun onLoading() {
+        loadingView.visibility = View.VISIBLE
+    }
+
+    private fun onError(errorData: ErrorData) {
+        Log.d("MovieListActivity", errorData.throwable.localizedMessage)
+        Toast.makeText(this, "Deu Ruim", Toast.LENGTH_LONG).show()
     }
 
     private fun prepareList() {
