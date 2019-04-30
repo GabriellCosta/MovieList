@@ -12,7 +12,7 @@ internal class MovieListTransform(private val genreMapTransform: GenreMapTransfo
             UUID.randomUUID().toString(),
             title = movieItemDTO.title,
             overview = movieItemDTO.overview,
-            posterPath = movieItemDTO.posterPath,
+            posterPath = movieItemDTO.posterPath ?: "",
             releaseDate = movieItemDTO.releaseDate,
             genre = genreMapTransform.map(movieItemDTO.genre).toString()
         )
