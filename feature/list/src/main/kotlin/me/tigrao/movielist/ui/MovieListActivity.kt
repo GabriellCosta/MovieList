@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.Observer
+import androidx.paging.PagedList
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -17,6 +18,7 @@ import me.tigrao.aegis.commons.ui.bind
 import me.tigrao.aegis.network.ui.observeOnError
 import me.tigrao.aegis.network.ui.observeOnLoading
 import me.tigrao.aegis.network.ui.observeOnSuccess
+import me.tigrao.movielist.data.MovieItemVO
 import me.tigrao.movielist.list.R
 import me.tigrao.movielist.viewmodel.MovieListViewModel
 import org.kodein.di.Kodein
@@ -92,8 +94,12 @@ internal class MovieListActivity : AppCompatActivity(), KodeinAware {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         if (item.itemId == R.id.menu_sort)
-            Toast.makeText(this, "sort", Toast.LENGTH_LONG).show()
+            sort()
 
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun sort() {
+        Toast.makeText(this, "Sort", Toast.LENGTH_LONG).show()
     }
 }
