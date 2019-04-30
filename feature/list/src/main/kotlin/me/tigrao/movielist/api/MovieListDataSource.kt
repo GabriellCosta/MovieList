@@ -27,7 +27,7 @@ internal class MovieListDataSource(
         coroutineScope.launch {
             val genreList = repository.fetchGenres().await()
 
-            movieListTransform = MovieListTransform(genreList)
+            movieListTransform = MovieListTransform(GenreMapTransform(genreList))
 
             repository.fetchMovieList(FIRST_PAGE).uiAwait(listState) {
 

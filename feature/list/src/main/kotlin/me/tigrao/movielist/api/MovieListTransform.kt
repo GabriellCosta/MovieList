@@ -1,16 +1,10 @@
 package me.tigrao.movielist.api
 
-import me.tigrao.movielist.data.GenreResponseDTO
 import me.tigrao.movielist.data.MovieItemDTO
 import me.tigrao.movielist.data.MovieItemVO
 import java.util.UUID
 
-internal class MovieListTransform(genreList: GenreResponseDTO) {
-
-    private val genreMap: Map<Int, String> = genreList.genres.map {
-        it.id to it.name
-    }
-        .toMap()
+internal class MovieListTransform(private val genreMapTransform: GenreMapTransform) {
 
     fun map(movieItemDTO: MovieItemDTO): MovieItemVO {
 
@@ -20,13 +14,7 @@ internal class MovieListTransform(genreList: GenreResponseDTO) {
             overview = movieItemDTO.overview,
             posterPath = movieItemDTO.posterPath,
             releaseDate = movieItemDTO.releaseDate,
-            genre = createGenreList(movieItemDTO.genre).toString()
+            genre = genreMapTransform.map(movieItemDTO.genre).toString()
         )
-    }
-
-    private fun createGenreList(genresId: List<Int>): List<String> {
-        return genresId.map { genreId ->
-            genreMap[genreId]!!
-        }
     }
 }
